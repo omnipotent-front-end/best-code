@@ -1,0 +1,19 @@
+{
+  "name": "best-code",
+  "version": "1.0.0",
+  "description": "best code",
+  "main": "index.js",
+  "repository": "git@github.com:omnipotent-front-end/best-code.git",
+  "author": "brizer <362512489@qq.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "vitepress": "^0.22.4"
+  },
+  "scripts": {
+    "start": "yarn docs:dev",
+    "build": "yarn docs:build",
+    "docs:dev": "vitepress dev docs",
+    "docs:build": "vitepress build docs",
+    "docs:serve": "vitepress serve docs"
+  }
+}
