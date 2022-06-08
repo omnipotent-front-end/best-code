@@ -2,6 +2,7 @@ export default {
     '/javascript/': getJavascriptSidebar(),
     '/node/': getNodeSidebar(),
     '/react/': getReactSidebar(),
+    '/vue/': getVueSidebar(),
 };
 
 function getJavascriptSidebar() {
@@ -174,6 +175,21 @@ function getReactSidebar() {
                 {
                     text: "JSX",
                     link: "/react/grammar/jsx",
+                },
+            ],
+        }
+    ];
+}
+
+
+function getVueSidebar() {
+    return [
+        {
+            text: "语法",
+            children: [
+                {
+                    text: "单文件组件",
+                    link: "/vue/grammar/sfc",
                 },
             ],
         }

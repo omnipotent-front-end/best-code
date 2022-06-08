@@ -2,6 +2,7 @@ module.exports = [
   { text: 'javascript', link: '/javascript/' },
   { text: 'node', link: '/node/' },
   { text: 'react', link: '/react/' },
+  { text: 'vue', link: '/vue/' },
   {
     text: "三方库",
     link: "https://brizer.github.io/urls/zh/api.html",
