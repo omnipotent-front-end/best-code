@@ -1,1 +1,0 @@
-import{_ as n,c as s,o as a,d as t}from"./app.469aebe0.js";const f='{"title":"\u7528\u6237\u4FE1\u606F\u8BCA\u65AD","description":"","frontmatter":{},"headers":[],"relativePath":"node/cli/ua.md"}',p={},o=t("",5),e=[o];function c(u,l,k,i,r,g){return a(),s("div",null,e)}var m=n(p,[["render",c]]);export{f as __pageData,m as default};
