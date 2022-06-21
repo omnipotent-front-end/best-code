@@ -83,6 +83,10 @@ function getJavascriptSidebar() {
                 {
                     text: 'DOM',
                     link: '/javascript/web/dom'
+                },
+                {
+                    text: 'FILE',
+                    link: '/javascript/web/file'
                 }
             ]
         },

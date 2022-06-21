@@ -10,7 +10,9 @@ for (const [key, value] of Object.entries(object1)) {
 }
 
 ```
- 
+ for (const [key, value] of Object.entries(object1)) {
+   console.log(`: `);
+ }
 ## 对象条件封装
 
 通过...和三目

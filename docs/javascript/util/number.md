@@ -20,3 +20,12 @@ export default () => ++current
 import nextSagaId from './uid'
 const effectId = nextSagaId()
 ```
+
+
+## 取两位小数
+
+需要注意，如果是相加，要在总值上格式化，否则每个子项是小数加起来还是会出现多位数的问题！
+
+``` js
+Math.floor(15.7784514000 * 100) / 100  
+```
