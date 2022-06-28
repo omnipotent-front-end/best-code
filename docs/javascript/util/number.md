@@ -29,3 +29,9 @@ const effectId = nextSagaId()
 ``` js
 Math.floor(15.7784514000 * 100) / 100  
 ```
+
+得出字符串类型的方式简单些：
+
+``` js
+(12.334).toFixed(2)
+```

@@ -345,3 +345,18 @@ export default {
 
 
 ```
+
+
+## 对象根据value排序
+
+弯道超车：
+
+``` js
+  // 对object的value排序拿到对应的key列表
+  const sortedObjKeys = Object.keys(appSuccessMap).sort((a, b) => {
+    return appSuccessMap[b] - appSuccessMap[a]
+  })
+  // 再通过指定key拿到内容
+  const successDataList = sortedObjKeys.map(key => appSuccessMap[key])
+
+```
