@@ -195,6 +195,10 @@ function getVueSidebar() {
                     text: "单文件组件",
                     link: "/vue/grammar/sfc",
                 },
+                {
+                    text: "JSX",
+                    link: "/vue/grammar/jsx",
+                },
             ],
         }
     ];

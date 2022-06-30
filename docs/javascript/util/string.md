@@ -35,3 +35,16 @@ export function randomString(length: number) {
 var str = 'p2p-dafei';
 console.log(str.split("p2p-")[1]);//dafei
 ```
+
+
+## 以特定字符结尾
+
+``` js
+let str = "Hello world, this is string test";
+let res1 = str.endsWith("test")
+let res2 = str.endsWith("Test")
+let res3 = str.endsWith("rest")
+console.log(res1,res2,res3) // true false false
+
+
+```
