@@ -1,6 +1,7 @@
 module.exports = [
   { text: 'javascript', link: '/javascript/' },
   { text: 'node', link: '/node/' },
+  { text: 'css', link: '/css/' },
   { text: 'react', link: '/react/' },
   { text: 'vue', link: '/vue/' },
   {

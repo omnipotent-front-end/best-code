@@ -1,6 +1,7 @@
 export default {
     '/javascript/': getJavascriptSidebar(),
     '/node/': getNodeSidebar(),
+    '/css/': getCssSidebar(),
     '/react/': getReactSidebar(),
     '/vue/': getVueSidebar(),
 };
@@ -169,6 +170,15 @@ function getNodeSidebar() {
             ]
         }
     ];
+}
+
+function getCssSidebar() {
+    return [
+        {
+            text: '动画',
+            link: '/css/animate'
+        }
+    ]
 }
 
 function getReactSidebar() {
