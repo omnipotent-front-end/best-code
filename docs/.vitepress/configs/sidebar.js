@@ -108,6 +108,10 @@ function getJavascriptSidebar() {
                     link: '/javascript/async/module'
                 },
                 {
+                    text: '异步链',
+                    link: '/javascript/async/then'
+                },
+                {
                     text: '异步循环',
                     link: '/javascript/async/for'
                 },
