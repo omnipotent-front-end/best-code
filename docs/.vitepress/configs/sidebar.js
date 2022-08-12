@@ -57,6 +57,10 @@ function getJavascriptSidebar() {
                     link: "/javascript/util/array",
                 },
                 {
+                    text: "日期操作",
+                    link: "/javascript/util/date",
+                },
+                {
                     text: "字符串操作",
                     link: "/javascript/util/string",
                 },
