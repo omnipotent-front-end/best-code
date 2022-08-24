@@ -46,3 +46,14 @@ new Array(10).fill("");
 );
 //['abc', 'bacdd', 'bacdd', 'bca', 'bca', 'bcadd', 'cba', 'cbaaa', 'cbaee']
 ```
+
+
+## 数组随机乱序
+
+``` js
+var arr = ["鹿晗", "王俊凯", "蔡徐坤", "彭于晏", "周杰伦", "刘德华", "赵本山"];
+arr.sort(function () {
+ return Math.random() - 0.5;   // 值为 -0.5 ~ 0.5 的随机数
+});
+console.log(arr);
+```

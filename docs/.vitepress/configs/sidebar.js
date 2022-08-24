@@ -183,6 +183,10 @@ function getNodeSidebar() {
 function getCssSidebar() {
     return [
         {
+            text: '全局性样式',
+            link: '/css/global'
+        },
+        {
             text: '动画',
             link: '/css/animate'
         }
