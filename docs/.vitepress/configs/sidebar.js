@@ -189,6 +189,10 @@ function getCssSidebar() {
         {
             text: '动画',
             link: '/css/animate'
+        },
+        {
+            text: 'scss',
+            link: '/css/scss'
         }
     ]
 }
