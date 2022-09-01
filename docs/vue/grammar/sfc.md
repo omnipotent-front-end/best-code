@@ -197,3 +197,61 @@
   }
 </style>
 ```
+
+
+## sync修饰符
+
+通过语法糖达到“修改prop”的目的：
+
+``` html
+<template>
+    <div class="details">
+        <myComponent :show.sync='valueChild'></myComponent>
+        <button @click="changeValue">toggle</button>
+    </div>
+</template>
+
+<script>
+import Vue from 'vue' //导入
+//子组件
+Vue.component('myComponent', { 
+      template: `<div v-if="show">
+                    <p>默认初始值是{{show}}，所以是显示的</p>
+                    <button @click.stop="closeDiv">关闭</button>
+                 </div>`,
+      props:['show'],
+      methods: {
+        closeDiv() {
+          this.$emit('update:show', false); //触发 input 事件，并传入新值
+        }
+      }
+})
+//父组件
+export default{
+    data(){
+        return{
+            valueChild:true,
+        }
+    },
+    methods:{
+        changeValue(){
+            this.valueChild = !this.valueChild
+        }
+    }
+}
+</script>
+
+```
+
+其本质：
+``` html
+<comp :foo.sync="bar"></comp>'
+```
+会被扩展为：
+``` html
+<comp :foo="bar" @update:foo="val => bar = val"></comp>
+```
+当子组件需要更新 foo 的值时，它需要显式地触发一个更新事件：
+``` js
+this.$emit('update:foo', newValue)
+```
