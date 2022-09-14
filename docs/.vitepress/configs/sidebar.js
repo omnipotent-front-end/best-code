@@ -161,6 +161,10 @@ function getNodeSidebar() {
                 {
                     text: '打包',
                     link: '/node/build/pack'
+                },
+                {
+                    text: 'webpack',
+                    link: '/node/build/webpack'
                 }
             ]
         },

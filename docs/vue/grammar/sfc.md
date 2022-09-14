@@ -255,3 +255,31 @@ export default{
 ``` js
 this.$emit('update:foo', newValue)
 ```
+
+
+
+## slot透传
+
+二次封装组件时经常会用到
+
+``` html
+<template>
+  <div class="do-infinite-scroll-list">
+    <virtual-list
+      v-bind="$attrs"
+      ref="list"
+      :style="styles"
+      v-on="$listeners"
+    >
+      <!-- 实现 slot 透传 -->
+      <template
+        v-for="slot in Object.entries($slots)"
+        :slot="slot[0]"
+      >
+        <slot :name="slot[0]" />
+      </template>
+
+    </virtual-list>
+  </div>
+</template>
+```
