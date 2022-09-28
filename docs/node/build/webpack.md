@@ -2,6 +2,7 @@
 
 ## 全量配置
 
+
 ``` js
 const path = require('path');
 
