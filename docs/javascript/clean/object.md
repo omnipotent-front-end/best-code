@@ -120,3 +120,63 @@ const account = makeBankAccount();
 account.setBalance(100);
 
 ```
+
+
+## 使用函数解决引用问题
+
+由于 js 中的对象是引用，因此赋默认值的时候最好通过函数，每次都返回一个新对象。这样就不需要深拷贝啦，比如先看反例：
+
+``` js
+const defaultCondition = {
+  name: '',
+  conditionList: [
+    {
+      conditionCode: '',
+      conditionValue: null,
+    },
+  ],
+}
+export default {
+    data() {
+        return {
+            condition: {...defaultCondition},
+        };
+    },
+    methods: {
+        closeDialog() {
+            this.condition =  {...defaultCondition};
+            this.configId = null;
+            this.$refs.form.resetFields();
+        },
+    },
+};
+```
+
+再看正面案例：
+
+``` js
+// 通过一个函数来返回新对象
+const getDefaultCondition = () => ({
+  name: '',
+  conditionList: [
+    {
+      conditionCode: '',
+      conditionValue: null,
+    },
+  ],
+})
+export default {
+    data() {
+        return {
+            condition: getDefaultCondition(),
+        };
+    },
+    methods: {
+        closeDialog() {
+            this.condition = getDefaultCondition();
+            this.configId = null;
+            this.$refs.form.resetFields();
+        },
+    },
+};
+```
