@@ -100,3 +100,52 @@ createElement(
   refInFor: true
 }
 ```
+
+
+## jsx写法
+
+``` js
+<DoTableAction
+  icon='caidans'
+  actions={[
+    { id: 'intoProject', name: '进入项目', hidden: false, icon: 'caidans' },
+    { id: 'svn', name: 'svn', hidden: false, icon: 'caidans', divided: true },
+    { id: 'chart', name: '数据报表', hidden: false, icon: 'caidans', divided: true }
+  ]}
+  row={row}
+  status={0}
+  dropdownDisable={false}
+  clickHide={true}
+  on-action={function(event) {
+    console.log(event)
+  }}
+/>
+```
+
+对标的createElement函数：
+
+``` js
+createElement(
+  DoTableAction,
+  {
+    props: {
+      icon: 'caidans',
+      actions: [
+        { id: 'intoProject', name: '进入项目', hidden: false, icon: 'caidans' },
+        { id: 'svn', name: 'svn', hidden: false, icon: 'caidans', divided: true },
+        { id: 'chart', name: '数据报表', hidden: false, icon: 'caidans', divided: true }
+      ],
+      row: row,
+      status: 0,
+      dropdownDisable: false,
+      clickHide: true
+    },
+    // 事件监听
+    on: {
+      action: function(event) {
+        console.log(event)
+      }
+    }
+  }
+)
+```
