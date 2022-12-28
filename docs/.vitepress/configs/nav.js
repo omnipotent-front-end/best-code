@@ -1,4 +1,5 @@
 module.exports = [
+  { text: 'html', link: '/html/' },
   { text: 'javascript', link: '/javascript/' },
   { text: 'node', link: '/node/' },
   { text: 'css', link: '/css/' },

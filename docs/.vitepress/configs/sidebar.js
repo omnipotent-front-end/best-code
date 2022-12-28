@@ -4,6 +4,7 @@ export default {
     '/css/': getCssSidebar(),
     '/react/': getReactSidebar(),
     '/vue/': getVueSidebar(),
+    '/html/': getHtmlSidebar()
 };
 
 function getJavascriptSidebar() {
@@ -229,6 +230,19 @@ function getVueSidebar() {
                     text: "JSX",
                     link: "/vue/grammar/jsx",
                 },
+            ],
+        }
+    ];
+}
+function getHtmlSidebar() {
+    return [
+        {
+            text: "语法",
+            children: [
+                {
+                    text: "通用头部",
+                    link: "/html/grammar/head",
+                }
             ],
         }
     ];

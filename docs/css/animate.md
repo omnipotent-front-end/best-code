@@ -39,3 +39,27 @@
 ``` css
 animation:  rotate 3s  linear  infinite;
 ```
+
+
+## 防抖
+
+没错，css动画也可以给按钮增加防抖，参考例子：https://mpfeow.csb.app/
+
+其核心逻辑其实是通过样式来：
+
+``` css
+.submitBtn {
+  animation: throttle 0.3s step-end forwards;
+}
+.submitBtn:active {
+  animation: none;
+}
+@keyframes throttle {
+  from {
+    pointer-events: none;
+  }
+  to {
+    pointer-events: all;
+  }
+}
+```
