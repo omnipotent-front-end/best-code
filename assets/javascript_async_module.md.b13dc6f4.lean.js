@@ -1,1 +1,0 @@
-import{_ as n,c as s,o as a,a as p}from"./app.429e1088.js";const m='{"title":"\u5F02\u6B65\u6A21\u5757","description":"","frontmatter":{},"headers":[],"relativePath":"javascript/async/module.md"}',t={},o=p("",19),e=[o];function c(u,l,k,i,r,d){return a(),s("div",null,e)}var g=n(t,[["render",c]]);export{m as __pageData,g as default};
