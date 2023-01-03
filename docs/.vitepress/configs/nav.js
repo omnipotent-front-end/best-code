@@ -5,6 +5,8 @@ module.exports = [
   { text: 'css', link: '/css/' },
   { text: 'react', link: '/react/' },
   { text: 'vue', link: '/vue/' },
+  { text: 'go', link: '/go/' },
+  { text: 'java', link: '/java/' },
   {
     text: "三方库",
     link: "https://brizer.github.io/urls/zh/api.html",
@@ -22,4 +24,8 @@ module.exports = [
     text: "健康指南",
     link: "https://omnipotent-front-end.github.io/Foods/",
   },
+  {
+    text: "Github",
+    link: 'https://github.com/omnipotent-front-end/best-code'
+  }
 ];

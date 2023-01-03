@@ -4,7 +4,9 @@ export default {
     '/css/': getCssSidebar(),
     '/react/': getReactSidebar(),
     '/vue/': getVueSidebar(),
-    '/html/': getHtmlSidebar()
+    '/html/': getHtmlSidebar(),
+    '/go/': getGoSidebar(),
+    '/java/': getJavaSidebar(),
 };
 
 function getJavascriptSidebar() {
@@ -242,6 +244,39 @@ function getHtmlSidebar() {
                 {
                     text: "通用头部",
                     link: "/html/grammar/head",
+                }
+            ],
+        }
+    ];
+}
+
+function getGoSidebar() {
+    return [
+        {
+            text: "语法",
+            children: [
+                {
+                    text: "基础语法",
+                    link: "/go/grammar/basic",
+                },
+                {
+                    text: "高级语法",
+                    link: "/go/grammar/better",
+                }
+            ],
+        }
+    ];
+}
+
+
+function getJavaSidebar() {
+    return [
+        {
+            text: "语法",
+            children: [
+                {
+                    text: "基础语法",
+                    link: "/java/grammar/basic",
                 }
             ],
         }
