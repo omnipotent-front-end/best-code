@@ -7,6 +7,7 @@ module.exports = [
   { text: 'vue', link: '/vue/' },
   { text: 'go', link: '/go/' },
   { text: 'java', link: '/java/' },
+  { text: 'linux', link: '/linux/' },
   {
     text: "三方库",
     link: "https://brizer.github.io/urls/zh/api.html",

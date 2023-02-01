@@ -7,6 +7,7 @@ export default {
     '/html/': getHtmlSidebar(),
     '/go/': getGoSidebar(),
     '/java/': getJavaSidebar(),
+    '/linux/': getLinuxSidebar(),
 };
 
 function getJavascriptSidebar() {
@@ -125,6 +126,15 @@ function getJavascriptSidebar() {
                 {
                     text: '事件',
                     link: '/javascript/async/event'
+                }
+            ]
+        },
+        {
+            text: 'Typescript',
+            children: [
+                {
+                    text: '装饰器',
+                    link: '/javascript/typescript/decorator'
                 }
             ]
         }
@@ -277,6 +287,20 @@ function getJavaSidebar() {
                 {
                     text: "基础语法",
                     link: "/java/grammar/basic",
+                }
+            ],
+        }
+    ];
+}
+
+function getLinuxSidebar() {
+    return [
+        {
+            text: "使用",
+            children: [
+                {
+                    text: "文件相关",
+                    link: "/linux/usage/file",
                 }
             ],
         }
