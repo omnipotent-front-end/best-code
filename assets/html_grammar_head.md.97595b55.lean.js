@@ -1,1 +1,0 @@
-import{_ as a,c as t,o as s,a as n}from"./app.2a3660c5.js";const k='{"title":"\u901A\u7528\u5934\u90E8","description":"","frontmatter":{},"headers":[{"level":2,"title":"\u56FE\u6807","slug":"\u56FE\u6807"}],"relativePath":"html/grammar/head.md"}',e={},o=n("",4),c=[o];function p(r,l,i,u,d,_){return s(),t("div",null,c)}var m=a(e,[["render",p]]);export{k as __pageData,m as default};
