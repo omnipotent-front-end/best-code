@@ -301,6 +301,10 @@ function getLinuxSidebar() {
                 {
                     text: "文件相关",
                     link: "/linux/usage/file",
+                },
+                {
+                    text: "网络相关",
+                    link: "/linux/usage/network",
                 }
             ],
         }
