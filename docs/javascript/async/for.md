@@ -58,3 +58,26 @@ async function foo(things) {
   return baz(await Promise.all(results));
 }
 ```
+
+用map配合Promise.all也是可以的：
+
+``` js
+const arr = [1, 2, 3, 4, 5];
+
+async function asyncFunction(num) {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve(num * 2);
+    }, 1000);
+  });
+}
+
+const promises = arr.map(async (num) => {
+  const result = await asyncFunction(num);
+  return result;
+});
+
+Promise.all(promises).then((results) => {
+  console.log(results); // [2, 4, 6, 8, 10]
+});
+```
