@@ -57,3 +57,32 @@ arr.sort(function () {
 });
 console.log(arr);
 ```
+
+## 遍历时增减
+
+flatMap 能用于在map期间增删项目（也就是修改items的数量。
+只需返回一个1项元素数组以保留该项，返回一个多元素数组以添加项，或返回一个0项元素数组以删除该项。
+
+``` js
+const array1 = [1, 4, 9, 16];
+
+// pass a function to map
+const map1 = array1.flatMap(x => x === 1? [] :[ x*2 ])
+
+console.log(map1);
+// expected output: Array [8, 18, 32]
+```
+
+用来解决以前需要如下实现的场景：
+
+``` js
+const array1 = [1, 4, 9, 16];
+
+// pass a function to map
+const map1 = array1
+    .filter(x => x !== 1)
+    .map(x => x * 2);
+
+console.log(map1);
+// expected output: Array [8, 18, 32]
+```
