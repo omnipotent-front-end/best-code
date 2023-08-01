@@ -1,0 +1,36 @@
+import{_ as n,c as a,o as s,a as p}from"./app.7806089e.js";const f='{"title":"\u7C7B\u578B","description":"","frontmatter":{},"headers":[{"level":2,"title":"\u5224\u65AD\u51FD\u6570\u7C7B\u578B","slug":"\u5224\u65AD\u51FD\u6570\u7C7B\u578B"},{"level":2,"title":"\u5224\u65AD\u503C\u7C7B\u578B","slug":"\u5224\u65AD\u503C\u7C7B\u578B"},{"level":3,"title":"\u662F\u5426\u662F\u539F\u59CB\u7C7B\u578B","slug":"\u662F\u5426\u662F\u539F\u59CB\u7C7B\u578B"},{"level":3,"title":"\u662F\u5426\u6709\u503C","slug":"\u662F\u5426\u6709\u503C"}],"relativePath":"javascript/util/type.md"}',t={},o=p(`<h1 id="\u7C7B\u578B" tabindex="-1">\u7C7B\u578B <a class="header-anchor" href="#\u7C7B\u578B" aria-hidden="true">#</a></h1><h2 id="\u5224\u65AD\u51FD\u6570\u7C7B\u578B" tabindex="-1">\u5224\u65AD\u51FD\u6570\u7C7B\u578B <a class="header-anchor" href="#\u5224\u65AD\u51FD\u6570\u7C7B\u578B" aria-hidden="true">#</a></h2><div class="language-js"><pre><code>exports<span class="token punctuation">.</span><span class="token function-variable function">generator</span> <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">obj</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> obj
+    <span class="token operator">&amp;&amp;</span> <span class="token string">&#39;function&#39;</span> <span class="token operator">===</span> <span class="token keyword">typeof</span> obj<span class="token punctuation">.</span>next
+    <span class="token operator">&amp;&amp;</span> <span class="token string">&#39;function&#39;</span> <span class="token operator">===</span> <span class="token keyword">typeof</span> obj<span class="token punctuation">.</span>throw<span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+exports<span class="token punctuation">.</span><span class="token function-variable function">generatorFunction</span> <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">obj</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> obj
+    <span class="token operator">&amp;&amp;</span> obj<span class="token punctuation">.</span>constructor
+    <span class="token operator">&amp;&amp;</span> <span class="token string">&#39;GeneratorFunction&#39;</span> <span class="token operator">===</span> obj<span class="token punctuation">.</span>constructor<span class="token punctuation">.</span>name<span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token comment">//\u662F\u5426\u662F\u5F02\u6B65\u51FD\u6570</span>
+exports<span class="token punctuation">.</span><span class="token function-variable function">asyncFunction</span> <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">obj</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> obj
+    <span class="token operator">&amp;&amp;</span> obj<span class="token punctuation">.</span>constructor
+    <span class="token operator">&amp;&amp;</span> <span class="token string">&#39;AsyncFunction&#39;</span> <span class="token operator">===</span> obj<span class="token punctuation">.</span>constructor<span class="token punctuation">.</span>name<span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token comment">//\u662F\u5426\u662Fpromise</span>
+exports<span class="token punctuation">.</span><span class="token function-variable function">promise</span> <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">obj</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> obj
+    <span class="token operator">&amp;&amp;</span> <span class="token string">&#39;function&#39;</span> <span class="token operator">===</span> <span class="token keyword">typeof</span> obj<span class="token punctuation">.</span>then<span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+</code></pre></div><h2 id="\u5224\u65AD\u503C\u7C7B\u578B" tabindex="-1">\u5224\u65AD\u503C\u7C7B\u578B <a class="header-anchor" href="#\u5224\u65AD\u503C\u7C7B\u578B" aria-hidden="true">#</a></h2><h3 id="\u662F\u5426\u662F\u539F\u59CB\u7C7B\u578B" tabindex="-1">\u662F\u5426\u662F\u539F\u59CB\u7C7B\u578B <a class="header-anchor" href="#\u662F\u5426\u662F\u539F\u59CB\u7C7B\u578B" aria-hidden="true">#</a></h3><div class="language-js"><pre><code><span class="token comment">//  \u5224\u65AD\u662F\u5426\u662F\u539F\u59CB\u503C</span>
+<span class="token keyword">export</span> <span class="token keyword">function</span> <span class="token function">isPrimitive</span> <span class="token punctuation">(</span><span class="token parameter">value</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> <span class="token punctuation">(</span>
+    <span class="token keyword">typeof</span> value <span class="token operator">===</span> <span class="token string">&#39;string&#39;</span> <span class="token operator">||</span>
+    <span class="token keyword">typeof</span> value <span class="token operator">===</span> <span class="token string">&#39;number&#39;</span> <span class="token operator">||</span>
+    <span class="token comment">// $flow-disable-line</span>
+    <span class="token keyword">typeof</span> value <span class="token operator">===</span> <span class="token string">&#39;symbol&#39;</span> <span class="token operator">||</span>
+    <span class="token keyword">typeof</span> value <span class="token operator">===</span> <span class="token string">&#39;boolean&#39;</span>
+  <span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h3 id="\u662F\u5426\u6709\u503C" tabindex="-1">\u662F\u5426\u6709\u503C <a class="header-anchor" href="#\u662F\u5426\u6709\u503C" aria-hidden="true">#</a></h3><div class="language-js"><pre><code><span class="token keyword">export</span> <span class="token keyword">function</span> <span class="token function">isDef</span> <span class="token punctuation">(</span><span class="token parameter">v</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> v <span class="token operator">!==</span> <span class="token keyword">undefined</span> <span class="token operator">&amp;&amp;</span> v <span class="token operator">!==</span> <span class="token keyword">null</span>
+<span class="token punctuation">}</span>
+</code></pre></div>`,8),e=[o];function c(r,l,u,k,i,d){return s(),a("div",null,e)}var h=n(t,[["render",c]]);export{f as __pageData,h as default};
