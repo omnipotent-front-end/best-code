@@ -242,6 +242,10 @@ function getVueSidebar() {
                     text: "JSX",
                     link: "/vue/grammar/jsx",
                 },
+                {
+                    text: "Compositions",
+                    link: "/vue/grammar/compositions"
+                }
             ],
         }
     ];

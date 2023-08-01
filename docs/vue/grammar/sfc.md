@@ -283,3 +283,166 @@ this.$emit('update:foo', newValue)
   </div>
 </template>
 ```
+
+
+## vue2使用@vue/composition-api的单文件组件
+
+``` vue
+<template>
+  <div class="ui__vue_hotspot_hotspot"
+    :style="`top: ${positionTop}; left: ${positionLeft}; background-color: ${hotspotColor};`"
+    :class="isActive || interactivity === 'none' ? 'active' : ''"
+    @mouseenter="interactivity === 'hover' ? isActive=true : null"
+    @mouseleave="interactivity === 'hover' ? isActive=false : null"
+    @click="interactivity === 'click' ? toggleActive() : null">
+    <!-- message box -->
+    <div :style="`color:${textColor}`">
+      <div
+        class="ui__vue_hotspot_title"
+        :style="`
+          background: ${messageBoxColor};
+          opacity: ${opacity}`"
+      >
+        {{ hotspot['Title'] }}
+      </div>
+      <div
+        class="ui__vue_hotspot_message"
+        :style="`
+          background: ${messageBoxColor};
+          opacity: ${opacity}`"
+      >
+        {{ hotspot['Message'] }}
+      </div>
+    </div>
+  </div>
+</template>
+
+<script>
+import { throttle } from '../utils/common.js'
+import {
+  createComponent,
+  ref,
+  reactive,
+  toRefs,
+  onMounted,
+  onUnmounted,
+  computed,
+  watch
+} from '@vue/composition-api'
+
+export default createComponent({
+  // 在使用Composition API时,props的定义不需要指定default值，
+  // setup 函数默认会等待 props 解析完成之后才会调用,所以props参数会是一个已经解析完的对象
+  props: {
+    hotspot: Object,
+    config: Object,
+    imageLoaded: Boolean,
+    vueHotspotBackgroundImage: HTMLImageElement,
+    vueHotspot: HTMLDivElement
+  },
+  setup (props, { emit }) {
+    const isActive = ref(false)
+    const conf = reactive({
+      positionTop: 0,
+      positionLeft: 0,
+      hotspotColor: computed(() => props.config && props.config.hotspotColor),
+      interactivity: computed(() => props.config && props.config.interactivity),
+      textColor: computed(() => props.config && props.config.textColor),
+      messageBoxColor: computed(() => props.config && props.config.messageBoxColor),
+      opacity: computed(() => props.config && props.config.opacity)
+    })
+
+    watch(() => props.imageLoaded, (loaded, prev) => {
+      if (loaded) {
+        getHotspotStyle()
+      }
+    })
+
+    onMounted(() => {
+      window.addEventListener('resize', throttle(getHotspotStyle, 50))
+    })
+
+    onUnmounted(() => {
+      window.removeEventListener('resize', throttle(getHotspotStyle, 50))
+    })
+
+    function getHotspotStyle () {
+      conf.positionTop = `${(props.hotspot.y * props.vueHotspotBackgroundImage.clientHeight / 100) + (props.vueHotspotBackgroundImage.offsetTop - props.vueHotspot.clientTop)}px;`
+      conf.positionLeft = `${(props.hotspot.x * props.vueHotspotBackgroundImage.clientWidth / 100) + (props.vueHotspotBackgroundImage.offsetLeft - props.vueHotspot.clientLeft)}px;`
+    }
+
+    function toggleActive () {
+      isActive.value = !isActive.value
+    }
+
+    return {
+      // data
+      isActive,
+      // reactive 返回的是一个Proxy对象,而模板中直接使用会有问题，
+      // toRefs 可以将一个 reactive 对象转换成普通对象,其中每一个属性都转换成一个 ref,从而保持响应性
+      ...toRefs(conf),
+      // methods
+      getHotspotStyle,
+      toggleActive
+    }
+  }
+})
+</script>
+```
+
+对标下vue2的option版本：
+
+``` js
+export default {
+
+  props: {
+    hotspot: Object,
+    config: Object, 
+    imageLoaded: Boolean
+  },
+
+  data() {
+    return {
+      isActive: false,
+      positionTop: 0,
+      positionLeft: 0,
+      // ...其他状态数据
+    }
+  },
+
+  computed: {
+    hotspotColor() {
+      return this.config.hotspotColor 
+    },
+    // ...其他计算属性
+  },
+
+  watch: {
+    imageLoaded(loaded) {
+      if (loaded) {
+        this.getHotspotStyle()  
+      }
+    }
+  },
+
+  methods: {
+    getHotspotStyle() {
+      // 计算热点位置的方法 
+    },
+
+    toggleActive() {
+      this.isActive = !this.isActive
+    } 
+  },
+
+  mounted() {
+    window.addEventListener('resize', _.throttle(this.getHotspotStyle, 50))
+  },
+
+  beforeDestroy() {
+    window.removeEventListener('resize', this.getHotspotStyle) 
+  }
+}
+```
+
+这里有个一个完整的官方的[vue2组件](https://github.com/vuejs/vue-cli/blob/a09407dd5b9f18ace7501ddb603b95e31d6d93c0/packages/@vue/cli-ui/src/components/folder/FolderExplorer.vue#L198-L404) 改为[vue3-非setupscript](https://gist.github.com/yyx990803/8854f8f6a97631576c14b63c8acd8f2e/9c43877f9bddee28b98848e90d29a2de8b254ab1)和[vue3-setupscript](https://gist.github.com/yyx990803/8854f8f6a97631576c14b63c8acd8f2e)的最佳实践
