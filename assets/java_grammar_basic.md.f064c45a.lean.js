@@ -1,0 +1,1 @@
+import{_ as e,c as a,o as r,a as t}from"./app.a8980bfd.js";const _='{"title":"\u57FA\u7840\u8BED\u6CD5","description":"","frontmatter":{},"headers":[],"relativePath":"java/grammar/basic.md"}',o={},n=t("",14),s=[n];function i(p,k,f,g,h,l){return r(),a("div",null,s)}var d=e(o,[["render",i]]);export{_ as __pageData,d as default};
