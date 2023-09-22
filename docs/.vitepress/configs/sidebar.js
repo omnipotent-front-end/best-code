@@ -309,6 +309,10 @@ function getLinuxSidebar() {
                 {
                     text: "网络相关",
                     link: "/linux/usage/network",
+                },
+                {
+                    text: "Nginx",
+                    link: "/linux/usage/nginx",
                 }
             ],
         }
