@@ -287,3 +287,31 @@ export default Vue.extend({
 });
 </script>
 ```
+
+
+## 通过getCurrentInstance来容错
+
+笔记片段：通过getCurrentInstance实现容错
+
+在Vue.js的Composition API中，getCurrentInstance是一个用于获取当前Vue实例的函数。这个函数可以在我们编写自定义钩子或工具函数时，帮助我们实现容错机制。
+
+当我们调用getCurrentInstance时，如果当前有活动的Vue实例，它将返回该实例。然而，如果没有活动的实例，它将返回null。我们可以利用这个特性来检查当前是否存在Vue实例，并据此决定如何执行代码。
+
+通过判断getCurrentInstance的返回值，我们可以在自定义函数中实现容错逻辑。例如，如果我们想在Vue实例存在时使用onMounted钩子，而在没有实例时直接执行函数，可以这样编写代码：
+
+``` javascript
+import { onMounted, getCurrentInstance } from 'vue'  
+  
+function tryOnUnmounted(fn) {
+  if (getCurrentInstance()) onUnmounted(fn)
+}
+
+function tryOnMounted(fn) {
+  if (getCurrentInstance()) onMounted(fn)
+  else fn()
+}
+``` 
+
+在上述代码中，tryOnMounted函数通过调用getCurrentInstance来获取当前Vue实例。如果存在实例，则使用onMounted将传入的函数fn注册为挂载钩子。如果没有实例，则直接执行函数fn。
+
+这种容错写法可以帮助我们在不同情况下保证代码的正常执行，无论是否存在Vue实例。它提高了代码的适应性和健壮性，使我们的自定义函数更加可靠。
