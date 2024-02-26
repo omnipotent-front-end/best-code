@@ -7,6 +7,7 @@ module.exports = [
   { text: 'vue', link: '/vue/' },
   { text: 'go', link: '/go/' },
   { text: 'java', link: '/java/' },
+  { text: 'python', link: '/python/' },
   { text: 'linux', link: '/linux/' },
   {
     text: "三方库",

@@ -7,6 +7,7 @@ export default {
     '/html/': getHtmlSidebar(),
     '/go/': getGoSidebar(),
     '/java/': getJavaSidebar(),
+    '/python': getPythonSidebar(),
     '/linux/': getLinuxSidebar(),
 };
 
@@ -291,6 +292,21 @@ function getJavaSidebar() {
                 {
                     text: "基础语法",
                     link: "/java/grammar/basic",
+                }
+            ],
+        }
+    ];
+}
+
+
+function getPythonSidebar() {
+    return [
+        {
+            text: "语法",
+            children: [
+                {
+                    text: "基础语法",
+                    link: "/python/grammar/basic",
                 }
             ],
         }
